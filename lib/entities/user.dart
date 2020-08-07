@@ -7,4 +7,5 @@ class User {
   DateTime nascimento;
   String telefone;
   String localTrabalho;
+  bool isAdm;
 }
