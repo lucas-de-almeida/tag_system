@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
 class LoginPage extends StatefulWidget {
+  static String routeName = '/';
   @override
   _LoginPageState createState() => _LoginPageState();
 }
