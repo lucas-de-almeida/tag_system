@@ -4,6 +4,7 @@ import 'package:tag_system/screens/adm/cadastro.dart';
 class Adm_Home extends StatefulWidget {
   @override
   _Adm_HomeState createState() => _Adm_HomeState();
+  static String pageRoute = 'Adm_Route';
 }
 
 class _Adm_HomeState extends State<Adm_Home> {

@@ -1,106 +1,87 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
+import 'adm/adm_home.dart';
+
 class LoginPage extends StatefulWidget {
   @override
   _LoginPageState createState() => _LoginPageState();
 }
 
 class _LoginPageState extends State<LoginPage> {
-  var now = new DateTime.now();
-  final formatter = new DateFormat('dd-MM-yyyy hh:mm');
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       resizeToAvoidBottomInset: false,
-      body: SafeArea(
+      body: SingleChildScrollView(
         child: Padding(
-          padding: const EdgeInsets.all(25),
+          padding: EdgeInsets.only(
+            top: MediaQuery.of(context).size.width * 0.3,
+            right: 32,
+            left: 32,
+          ),
           child: Column(
-            children: <Widget>[
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Image.asset('assets/images/hercosul_logo.png'),
+              SizedBox(
+                width: MediaQuery.of(context).size.width,
+                height: MediaQuery.of(context).size.height * 0.09,
+              ),
+              TextField(
+                textAlign: TextAlign.center,
+                decoration: InputDecoration(
+                  suffixIcon: Icon(Icons.person),
+                  labelText: 'Registro',
+                  labelStyle: TextStyle(
+                    color: Colors.black,
+                  ),
+                ),
+              ),
+              SizedBox(
+                height: 40,
+              ),
+              TextField(
+                decoration: InputDecoration(
+                    suffixIcon: Icon(Icons.lock),
+                    labelText: 'Senha',
+                    labelStyle: TextStyle(
+                      color: Colors.black,
+                    )),
+              ),
+              SizedBox(
+                width: MediaQuery.of(context).size.width,
+                height: MediaQuery.of(context).size.height * 0.09,
+              ),
               Row(
-                mainAxisAlignment: MainAxisAlignment.end,
                 children: <Widget>[
-                  Container(
-                    padding: EdgeInsets.all(10),
-                    color: Colors.white,
-                    child: Text(
-                      formatter.format(now),
-                      style: TextStyle(
-                        color: Colors.black,
+                  Expanded(
+                    child: RaisedButton(
+                      onPressed: () {
+                        Navigator.of(context).pushNamed(Adm_Home.pageRoute);
+                      },
+                      child: Text(
+                        'Entrar ',
                       ),
                     ),
-                  ),
+                  )
                 ],
               ),
               SizedBox(
-                height: 70,
+                height: 10,
               ),
-              Expanded(
-                child: Column(
-                  children: <Widget>[
-                    Container(
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(5),
-                        color: Colors.white,
+              Align(
+                alignment: Alignment.centerRight,
+                child: FlatButton(
+                  onPressed: () {},
+                  child: Column(
+                    children: [
+                      Text(
+                        'Esqueceu sua senha?',
                       ),
-                      child: TextField(
-                        textAlign: TextAlign.center,
-                        decoration: InputDecoration(
-                            labelText: 'Registro',
-                            labelStyle: TextStyle(
-                              color: Colors.black,
-                            )),
-                      ),
-                    ),
-                    SizedBox(
-                      height: 40,
-                    ),
-                    Container(
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(5),
-                        color: Colors.white,
-                      ),
-                      child: TextField(
-                        decoration: InputDecoration(
-                            labelText: 'Senha',
-                            labelStyle: TextStyle(
-                              color: Colors.black,
-                            )),
-                      ),
-                    ),
-                    SizedBox(
-                      height: 40,
-                    ),
-                    Row(
-                      children: <Widget>[
-                        Expanded(
-                          child: Container(
-                            child: RaisedButton(
-                              onPressed: () {},
-                              child: Text(
-                                'Esqueci a senha',
-                              ),
-                            ),
-                          ),
-                        ),
-                        SizedBox(
-                          width: 40,
-                        ),
-                        Expanded(
-                          child: Container(
-                            child: RaisedButton(
-                              onPressed: () {},
-                              child: Text(
-                                'Entrar ',
-                              ),
-                            ),
-                          ),
-                        )
-                      ],
-                    ),
-                  ],
+                      Text('Clique aqui'),
+                    ],
+                  ),
                 ),
               ),
             ],
