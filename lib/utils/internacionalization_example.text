@@ -1,0 +1,5 @@
+Text(
+    AppLocalizations.of(context).translate(key)
+    style: TextStyle(fontSize: 25),
+    textAlign: TextAlign.center,
+)
